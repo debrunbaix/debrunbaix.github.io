@@ -1,12 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Debrunbaix Portfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio de Debrunbaix</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Hello Debrunbaix</h1>
+    <header>
+        <nav class="navigationWrapper">
+            <div class="logoWrapper">
+              <span class="stylish">Debrunbaix</span>
+            </div>
+            <ul class="navigation">
+              <li class="parent"><a class="link" href="#">About Me</a></li>
+              <li class="parent"><a class="link" href="#">Projects</a></li>
+              <li class="parent"><a class="link" href="#">Contact</a></li>
+            </ul>
+          </nav>
+    </header>
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Professional life: I work at Cloud Temple as a cyber security engineer.</p>
+            <p>Student life: I am pursuing my master's degree in cyber security at SupDeVinci.</p>
+        </section>
+        <section id="projects">
+            <h2>My Projects</h2>
+            <div class="project">
+                <img src="img/enkidu.png" alt="Logo du projet">
+                <div class="project-info">
+                    <h3>Enkidu</h3>
+                    <p>Automated Pentesting Tool for Binary Analysis and Exploitation</p>
+                </div>
+            </div>
+            <div class="project">
+                <img src="img/ubuntu.png" alt="Logo du projet">
+                <div class="project-info">
+                    <h3>auto_USN_rss</h3>
+                    <p>Automated Python script designed to fetch the latest Ubuntu Security Notices via RSS feeds and deliver them via email notifications. Stay updated with security vulnerabilities in Ubuntu by receiving timely notifications extracted from the USN feed and sent directly to your inbox</p>
+                </div>
+            </div>
+            <div class="project">
+                <img src="img/ac-save.png" alt="Logo du projet">
+                <div class="project-info">
+                    <h3>AC-SAVE</h3>
+                    <p>Powershell script to manage assassin's creed Unity/Syndicate saves files</p>
+                </div>
+            </div>
+        </section>
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <ul>
+                <li>Email: your@email.com</li>
+                <li>Github: <a href="https://github.com/yourusername">github.com/yourusername</a></li>
+                <li>Medium: <a href="https://medium.com/@yourusername">medium.com/@yourusername</a></li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Debrunbaix</p>
+    </footer>
 </body>
 </html>
