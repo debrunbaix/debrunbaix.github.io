@@ -91,9 +91,12 @@ html, body {
 }
 
 /* Match the height of the logo to the height of the info-container */
-.about-section {
+.about-section, .description-section {
+  max-width: 800px; /* Adjust this value to match the width of the above section */
+  margin: 0 auto; /* Center the sections within their container */
   display: flex;
-  align-items: center; /* Aligns the logo and text vertically */
+  align-items: center;
+  padding: 20px; /* Match the padding to the above section */
 }
 
 /* You may also want to ensure that the .about-section does not stretch too wide */
@@ -118,10 +121,42 @@ html, body {
   font-weight: bold;
 }
 
+.highlight:hover {
+  color: #76eec2; /* highlighted text color */
+}
+
+/* ------------------------- */
+
+.description-section p {
+  flex: 1; /* Ensure the paragraph takes up all available space */
+  margin: 0 20px; /* Match the left and right margins to the above section */
+}
+.description-icon {
+  margin-right: 20px; /* Ensure this matches the margin between the text and icon in the about section */
+}
+
+.description-section p {
+  font-family: Arial, sans-serif; /* Common font */
+  font-size: 22px; /* Adjust the font size as needed */
+  line-height: 1.6; /* Standard line-height for readability */
+  margin: 0; /* Remove default paragraph margin */
+}
+
+.description-section strong {
+  color: #61D6AC; /* highlighted text color */
+}
+
 @media (min-width: 768px) {
   .about-section {
       padding: 20px;
       justify-content: space-around; /* Adjust the space around items */
+  }
+  .description-section {
+    flex-direction: column; /* Stack icon and text on smaller screens */
+  }
+  
+  .description-icon {
+    margin-bottom: 10px; /* Space between the icon and text when stacked */
   }
 }
 
