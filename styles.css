@@ -1,195 +1,128 @@
-body {
-    font-family: "Roboto", sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: #1b1b1b;
-    color: #fff;
+html, body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #261F28; /* dark background */
+  color: #FFFFFF;
 }
 
-.navigationWrapper {
-    position:sticky;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-    /* background-color: rgba(97, 214, 172, 0.5); */
-    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25);
-    color: white;
-    text-transform: uppercase;
-    overflow: hidden;
-    width: 800px;
-  
-    .logoWrapper {
-      display: flex;
-  
-      .stylish {
-        font-weight: bold;
-        font-size: 30px;
-        color: #a14ad9;
-      }
-    }
-  
-    .navigation {
-      display: flex;
-      list-style-type: none;
-  
-      li {
-        opacity: 1;
-        list-style-type: none;
-        color: white;
-        text-decoration: none;
-        transition: all 0.3s ease-in-out;
-      }
-  
-      .parent {
-        padding: 0 10px;
-        cursor: pointer;
-  
-        .link {
-          position: relative;
-          display: flex;
-          align-items: center;
-          text-decoration: none;
-          transition: all 0.3s ease-in-out;
-          color: white;
-  
-          &:hover {
-            color: #a14ad9;
-          }
-  
-          .fa-minus {
-            opacity: 0;
-            transition: all 0.3s ease-in-out;
-            position: absolute;
-            left: -16px;
-            top: 3px;
-          }
-  
-          .fa-plus {
-            opacity: 1;
-            transition: all 0.3s ease-in-out;
-          }
-  
-          .fas {
-            color: #a14ad9;
-            margin: -2px 4px 0;
-            font-size: 10px;
-            transition: all 0.3s ease-in-out;
-          }
-        }
-      }
-  
-      .subnavigation {
-        display: none;
-        list-style-type: none;
-        width: 500px;
-        position: absolute;
-        top: 40%;
-        left: 25%;
-        margin: auto;
-        transition: all 0.3s ease-in-out;
-        background-color: #222;
-  
-        li a {
-          font-size: 17px;
-          padding: 0 5px;
-        }
-      }
-    }
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #261F28; /* dark background */
+}
+
+.logo {
+  font-size: 38px;
+  color: #8E4CB7; /* title color */
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+}
+
+.nav-item {
+  color: #FFFFFF; /* text and link color */
+  text-decoration: none;
+  margin-left: 30px;
+  font-size: 26px;
+  position: relative;
+}
+
+.nav-item::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 4px;
+  background: #8E4CB7; /* title color */
+  transition: width .3s;
+}
+
+.nav-item:hover::after {
+  width: 100%;
+}
+
+/*  -------------------------------- */
+
+.main-content {
+  flex-grow: 1; /* Take up the remaining space */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  flex-direction: column; /* Stack vertically */
+}
+
+.about-section {
+  display: flex;
+  align-items: center; /* Ensures vertical alignment of items inside the section */
+  justify-content: center; /* Center horizontally in the container */
+}
+
+.logo-container {
+  padding: 10px; 
+  margin: 20px;
+  background-color: #61D6AC; /* logo background */
+  border-radius: 40px; /* Adjust radius as per your design */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 200px; /* Set a maximum width for the logo container */
+  max-height: 200px; /* Set a maximum height for the logo container */
+}
+
+.logo-container img {
+  max-height: 100%; /* Ensures the logo height does not exceed the container */
+  max-width: 100%; /* Ensures the logo width does not exceed the container */
+  width: auto; /* Maintain aspect ratio */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Since we want the logo to match the height of the text on the right */
+.info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Match the height of the logo to the height of the info-container */
+.about-section {
+  display: flex;
+  align-items: center; /* Aligns the logo and text vertically */
+}
+
+/* You may also want to ensure that the .about-section does not stretch too wide */
+
+.info-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* Adjust spacing as per your design */
+  font-size: 22px; /* Adjust font size as needed */
+  line-height: 1.5; /* This is standard for legibility */
+}
+
+.info-icon {
+  height: 3em; /* This should be roughly the height of two lines of text */
+  width: auto; /* This will maintain the aspect ratio of the image */
+  margin-right: 10px;
+}
+
+
+.highlight {
+  color: #61D6AC; /* highlighted text color */
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  .about-section {
+      padding: 20px;
+      justify-content: space-around; /* Adjust the space around items */
   }
-  
-  .active.parent {
-    transform: translate(-40px, -25px);
-    .link {
-      font-size: 12px;
-  
-      .fa-minus {
-        opacity: 1 !important;
-        font-size: 8px;
-      }
-  
-      .fa-plus {
-        opacity: 0 !important;
-      }
-    }
-  
-    .subnavigation {
-      display: flex;
-    }
-  }
-  
-  .active#clients {
-    .subnavigation {
-      transform: translate(-150px, 17px);
-    }
-  }
-  
-  .active#services {
-    .subnavigation {
-      transform: translate(-290px, 17px);
-    }
-  }
-  
-  .invisible {
-    opacity: 0 !important;
-    transform: translate(50px, 0);
-  }
-
-footer {
-    background-color: #161616; /* Fond sombre pour le header et le footer */
-    color: #fff; /* Texte clair pour le header et le footer */
-    padding: 20px 0;
 }
 
-h2 {
-    color: #a14ad9; /* Titres en violet */
-    text-align: center;
-}
-
-#projects {
-    max-width: 800px; /* Limiter la largeur de la section de projets */
-    margin: 0 auto; /* Centrer la section de projets */
-}
-
-#projects .project {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    background-image: linear-gradient(to top right, rgba(161, 97, 214, 0.3), rgba(119, 44, 180, 0.3)); /* Dégradé du coin bas gauche au coin haut droit */
-    padding: 10px;
-    border-radius: 5px;
-}
-
-#projects .project img {
-    width: 100px; /* Ajustez la taille de l'image selon vos besoins */
-    height: 100px; /* Ajustez la taille de l'image selon vos besoins */
-    margin-right: 20px;
-}
-
-.project-info {
-    flex: 1;
-    text-align: left;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-    text-align: left; /* Aligner la liste à gauche */
-}
-
-li {
-    margin-bottom: 10px;
-}
-
-footer {
-    bottom: 0;
-    width: 100%;
-}
-
-main {
-    padding: 20px;
-}
+/* Additional styles may be needed for responsiveness and exact sizing */

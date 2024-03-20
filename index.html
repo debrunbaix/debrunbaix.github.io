@@ -1,65 +1,47 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio de Debrunbaix</title>
+    <title>About Me Page</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <nav class="navigationWrapper">
-            <div class="logoWrapper">
-              <span class="stylish">Debrunbaix</span>
+    <nav class="navbar">
+        <div class="logo">DEBRUNBAIX</div>
+        <div class="nav-links">
+            <a href="#about-me" class="nav-item">ABOUT ME</a>
+            <a href="#my-projects" class="nav-item">MY PROJECTS</a>
+            <a href="#contact" class="nav-item">CONTACT</a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="about-section">
+            <div class="logo-container">
+                <img src="img/debrunbaix.png" alt="Debrunbaix Logo">
             </div>
-            <ul class="navigation">
-              <li class="parent"><a class="link" href="#">About Me</a></li>
-              <li class="parent"><a class="link" href="#">Projects</a></li>
-              <li class="parent"><a class="link" href="#">Contact</a></li>
-            </ul>
-          </nav>
-    </header>
-    <main>
-        <section id="about">
-            <h2>About Me</h2>
-            <p>Professional life: I work at Cloud Temple as a cyber security engineer.</p>
-            <p>Student life: I am pursuing my master's degree in cyber security at SupDeVinci.</p>
-        </section>
-        <section id="projects">
-            <h2>My Projects</h2>
-            <div class="project">
-                <img src="img/enkidu.png" alt="Logo du projet">
-                <div class="project-info">
-                    <h3>Enkidu</h3>
-                    <p>Automated Pentesting Tool for Binary Analysis and Exploitation</p>
+            <div class="info-container">
+                <div class="info-item">
+                    <img src="img/me.png" alt="" class="info-icon">
+                    <span>I am Debrunbaix!</span>
+                </div>
+                <div class="info-item">
+                    <img src="img/lock.png" alt="" class="info-icon">
+                    <span>I work as a <strong class="highlight">security engineer</strong> at Cloud Temple</span>
+                </div>
+                <div class="info-item">
+                    <img src="img/student.png" alt="" class="info-icon">
+                    <span>I study <strong class="highlight">Cyber-Security</strong> in SupDeVinci School in Paris</span>
                 </div>
             </div>
-            <div class="project">
-                <img src="img/ubuntu.png" alt="Logo du projet">
-                <div class="project-info">
-                    <h3>auto_USN_rss</h3>
-                    <p>Automated Python script designed to fetch the latest Ubuntu Security Notices via RSS feeds and deliver them via email notifications. Stay updated with security vulnerabilities in Ubuntu by receiving timely notifications extracted from the USN feed and sent directly to your inbox</p>
-                </div>
-            </div>
-            <div class="project">
-                <img src="img/ac-save.png" alt="Logo du projet">
-                <div class="project-info">
-                    <h3>AC-SAVE</h3>
-                    <p>Powershell script to manage assassin's creed Unity/Syndicate saves files</p>
-                </div>
-            </div>
-        </section>
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <ul>
-                <li>Email: your@email.com</li>
-                <li>Github: <a href="https://github.com/yourusername">github.com/yourusername</a></li>
-                <li>Medium: <a href="https://medium.com/@yourusername">medium.com/@yourusername</a></li>
-            </ul>
-        </section>
+        </div>
     </main>
-    <footer>
-        <p>&copy; 2024 Debrunbaix</p>
-    </footer>
+    
 </body>
 </html>
+
+
+
+<!-- <a href="https://www.flaticon.com/fr/icones-gratuites/fermer-a-cle" title="fermer à clé icônes">Fermer à clé icônes créées par Pavel Kozlov - Flaticon</a> -->
+<!-- <a href="https://www.flaticon.com/fr/icones-gratuites/gens" title="gens icônes">Gens icônes créées par yaicon - Flaticon</a> -->
