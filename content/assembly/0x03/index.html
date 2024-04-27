@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Debrunbaix</title>
+</head>
+<body">
+    <div class="nav-bar">
+        <div class="logo">
+            <h1>Debrunbaix</h1>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="../../../index.html"><span style="color: #fff; background-color: #8c4dc7; padding: 12px 16px; border-radius: 10px;">Content</span></a>
+            </li>
+            <li>
+                <a href="/content/projects/index.html">Projects</a>
+            </li>
+            <li>
+                <a href="/content/Whoami/index.html">Whoami</a>
+            </li>
+            <li>
+                <a href="/content/Passions/index.html">Passions</a>
+            </li>
+        </ul>
+    </div>
+    <div class="content">
+        <h1>structure :</h1>
+    
+        <h2>boucle :</h2>
+        <p>pour former une boucle il faut une condition de boucle comme avec l'instruction :</p>
+        <ul>
+            <li><code>cmp</code> :
+                <ul>
+                    <li>fait comme l'instruction sub sans changer les valeurs des registres</li>
+                    <li>pour savoir si registre 1 est plus grand que registre 2</li>
+                </ul>
+            </li>
+        </ul>
+        <p>en fonction de la réponse de <code>cmp</code>, nous utiliserons ensuite une instruction pour exécuter la boucle comme :</p>
+        <ul>
+            <li><code>jg</code> : si 1 est plus grand que 2, l'instruction est exécutée</li>
+            <li><code>jle</code> : jump if less or equal</li>
+            <li>etc...</li>
+        </ul>
+    
+        <h2>Procédures</h2>
+        <p>sorte de fonction qui sont des blocs de code réutilisable à des fins d'optimisation</p>
+        <p>pour appeler une procédure :</p>
+        <ul>
+            <li><code>call</code> -&gt; <code>ret</code> : <code>call</code> stocke l'adresse de retour avant d'aller dans la procédure puis <code>ret</code> jump vers l'adresse stockée par call</li>
+        </ul>
+    
+        <h1>Exercice :</h1>
+    
+        <h2>Exercice 1 : Boucle avec condition</h2>
+        <p>Écrire un programme en assembleur qui utilise une boucle pour compter de 0 à 9. Utilisez une condition dans la boucle pour sauter sur une procédure qui affiche "5" si le compteur atteint 5. Sinon, continuez à compter.</p>
+        <h3>Ma Solution :</h3>
+        <pre><code>
+    section .text
+        global _start
+    
+    _start:
+        ; attribution de la valeur 0 à A
+        xor rax, rax
+    
+        ; appel de la section boucle
+        jmp _boucle
+    
+    _boucle:
+        ; ajouter 1 à A
+        add rax, 0x1
+        ; comparer la valeur contenu dans A à 5
+        cmp rax, 0x5
+        ; si égal, affiche 5
+        je _display_five
+        ; si pas égal, vérifi si c'est égal a 9
+        cmp rax, 0x9
+        ; si pas égal, continue la boucle
+        jne _boucle
+        ; si égal, terminer le programme
+        jmp _fin
+    
+    _display_five:
+        mov rcx, 0x5
+        jmp _boucle
+    
+    _fin:
+        mov rax, 60
+        xor rdi, rdi
+        syscall
+        </code></pre>
+    
+        <h2>Exercice 2 : Procédures d'Addition et de Soustraction</h2>
+        <p>Définissez deux procédures : une pour additionner deux nombres et une autre pour soustraire deux nombres. Les nombres seront passés et retournés via des registres. Testez ces procédures avec des valeurs spécifiques.</p>
+        <h3>Ma Solution :</h3>
+        <pre><code>
+    section .text
+        global _start
+    
+    _start:
+        ; attribution des valeurs aux registres
+        mov rax, 0x5
+        mov rbx, 0x3
+    
+        ; aller à la procédure d'addition
+        call _add
+        call _sub
+    
+        jmp _fin
+    
+    _add:
+        ; ajouter la valeur de B à A
+        add rax, rbx
+        ; mettre le résultat dans C
+        mov rcx, rax
+        ; remettre les valeurs par défaut
+        sub rax, rbx
+        
+        ret
+    
+    _sub:
+        ; soustraire la valeur de B à A
+        sub rax, rbx
+        ; mettre le résultat dans D
+        mov rdx, rax
+        
+        ret
+    
+    _fin:
+        mov rax, 60
+        xor rdi, rdi
+        syscall
+        </code></pre>
+    </div>
+    
+    
+</body>
+</html>

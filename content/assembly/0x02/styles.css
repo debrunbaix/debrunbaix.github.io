@@ -34,6 +34,7 @@ body{
     align-items: center;
     min-height: 8vh;
     background-color: #7726c2;
+    /* box-shadow: -1px 6px 10px 2px rgba(131, 126, 126, 0.45); */
     border-radius: 0 0 8px 8px;
 }
 
@@ -73,47 +74,72 @@ body{
     transition: all 0.3s ease;
 }
 
+
 /* CONTENT */
 
 .content{
     margin: 100px auto 0;
     padding: 0 20px;
     max-width: 1300px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 400px);
-    grid-gap: 20px;
     justify-content: center;
+    font-size: x-large;
 }
-.blocks{
-    border: 2px solid #7726c2;
-    min-height: 200px;
-    background-color: #3b3541;
-    color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    transition: all 0.5s ease;
-    cursor: pointer;
-}
-.blocks:hover{
-    background-color: #473b53;
-}
-.blocks a{
-    text-decoration: none;
-}
-.blocks .title{
-    font-family: 'Poppins-reg';
-    font-weight: normal;
-    font-size: 12px;
-    padding-bottom: 5px;
+
+.content h3{
+    font-size: xx-large;
     text-align: center;
+    padding-bottom: 40px;
 }
-.blocks .title a{
-    color: #8e46d1;
-    font-size: 25px;
-}
-.blocks .description{
-    font-family: 'Poppins';
+
+.content h1{
+    color: #7726c2;
+    text-align: center;
     padding: 20px;
-    border-top: 1px solid #e0c5fa;
-    text-align: justify;
+}
+
+.content h2{
+    color: #46d1ae;
+    padding: 15px;
+}
+
+.content ul{
+    padding-left: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.content blockquote{
+    border-style: solid;
+    border-color: #2a292b;
+    border-left-color: #e7e96e;
+    color: #e7e96e;
+    padding: 15px;
+}
+
+.content p{
+    padding-left: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+pre {
+    background: #251f2b;
+    border-left: 3px solid #7726c2;
+    color: #fff;
+    page-break-inside: avoid;
+    font-family: monospace;
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    margin: 30px;
+    margin-left: 200px;
+    margin-right: 200px;
+    display: block;
+    word-wrap: break-word;
+}
+
+code{
+    color: #d6d1d1;
 }

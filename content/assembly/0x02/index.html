@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Debrunbaix</title>
+</head>
+<body">
+    <div class="nav-bar">
+        <div class="logo">
+            <h1>Debrunbaix</h1>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="../../../index.html"><span style="color: #fff; background-color: #8c4dc7; padding: 12px 16px; border-radius: 10px;">Content</span></a>
+            </li>
+            <li>
+                <a href="/content/projects/index.html">Projects</a>
+            </li>
+            <li>
+                <a href="/content/Whoami/index.html">Whoami</a>
+            </li>
+            <li>
+                <a href="/content/Passions/index.html">Passions</a>
+            </li>
+        </ul>
+    </div>
+    <div class="content">
+
+        <h3>OxO2 | Base et structure x86_64.</h3>
+
+        <h1>Les registres x86</h1>
+        <h2>Définition</h2>
+        <ul>
+            <li>Emplacement de mémoire très rapide dans le processeur</li>
+            <li>stockage de données et d'adresses durant l'execution d'un programme</li>
+        </ul>
+        <h2>Les types de registre</h2>
+        <p><strong>Registre généraux :</strong></p>
+        <ul>
+            <li>AX, BX, CX, DX</li>
+            <li>pour des opérations :</li>
+            <ul>
+                <li>Arithmétiques</li>
+                <li>Logiques</li>
+                <li>stockage de données</li>
+            </ul>
+        </ul>
+        <p><strong>Registre d'index :</strong></p>
+        <ul>
+            <li>SI, DI, BP, SP</li>
+            <li>utilisé pour de l'adressage de mémoire</li>
+        </ul>
+        <p><strong>Registre de segment :</strong></p>
+        <ul>
+            <li>CS, DS, ES, SS</li>
+            <li>determine les segments de mémoire utilisés pour le code, les données et la pile</li>
+        </ul>
+        <p><strong>Registre d'instruction :</strong></p>
+        <ul>
+            <li>IP</li>
+            <li>pointe sur la prochaine instruction a exécuter</li>
+        </ul>
+        <p><strong>Registre d'etat :</strong></p>
+        <ul>
+            <li>FLAGS</li>
+            <li>contient l’état du processeur</li>
+        </ul>
+        <blockquote>
+            <p>Les registres sont comme des variables mais en nombre limité et extrêmement rapide.</p>
+        </blockquote>
+        <h1>Les instructions</h1>
+        <h2>Définition</h2>
+        <p>Les instructions sont ce que le processeur va devoir exécuter.</p>
+        <h2>Les types d'instructions</h2>
+        <p><strong>Mouvement de données :</strong></p>
+        <ul>
+            <li>mov : ajoute une valeur à un registre</li>
+            <li>push : ajoute une valeur dans la pile</li>
+            <li>pop : supprime la dernière valeur de la pile</li>
+        </ul>
+        <p><strong>Opération arithmétique :</strong></p>
+        <ul>
+            <li>add : ajoute une valeur a celle d'un registre</li>
+            <li>sub : soustrait une valeur a celle d'un registre</li>
+            <li>mul : multiplie une valeur a celle d'un registre</li>
+            <li>div : divise une valeur a celle d'un registre</li>
+        </ul>
+        <p><strong>Contrôle de flux :</strong></p>
+        <ul>
+            <li>jmp, je, jne : permet d'aller a une adresse précise</li>
+            <li>call : appel une focntion précise</li>
+        </ul>
+        <h1>Coder en assembleur :</h1>
+        <h2>structure du fichier :</h2>
+        <p>un fichier source est divisé en sections :</p>
+        <ul>
+            <li><code>.data</code> : contient des variables</li>
+            <li><code>.text</code> : point d'entré du programme comme <code>_start</code></li>
+        </ul>
+        <h2>exemple :</h2>
+        <pre>
+            <code>
+    section .text
+            global _start
+    
+    _start:
+            mov rax, 0x1
+            mov rbx, 0x2
+    
+            xor rax, rbx
+            xor rbx, rax
+            xor rax, rbx
+    
+            mov rax, 60
+            xor rdi, rdi
+            syscall
+            </code>
+        </pre>
+        
+            <h1>Exercice :</h1>
+        
+            <h2>Exercice 1 : Manipulation des registres</h2>
+            <ul>
+                <li>Écrire un programme qui échange les valeurs entre deux registres, <code>AX</code> et <code>BX</code>, sans utiliser un troisième registre temporaire.</li>
+            </ul>
+            <h3>Ma solution :</h3>
+            <pre><code>
+        section .text
+            global _start
+        
+        _start:
+            ; attribution des valeurs aux deux registres
+            mov rax, 0x1
+            mov rbx, 0x2
+        
+            ; utilisation de la propriété de XOR pour échanger les valeurs
+            xor rax, rbx
+            xor rbx, rax
+            xor rax, rbx
+        
+            ; exit linux
+            mov rax, 60
+            xor rdi, rdi
+            syscall
+            </code></pre>
+        
+            <h2>Exercice 2 : Calculs simples</h2>
+            <ul>
+                <li>Utiliser des instructions arithmétiques pour calculer la somme, la différence, et le produit de deux nombres stockés dans les registres <code>AX</code> et <code>BX</code>. Stocker chaque résultat dans un registre différent.</li>
+            </ul>
+            <h3>Ma Solution :</h3>
+            <pre><code>
+        section .text
+            global _start
+        
+        _start:
+            mov rax, 2
+            mov rbx, 4
+        
+            ; Calcul de la somme
+            mov rcx, rbx
+            add rcx, rax
+        
+            ; Calcul de la différence
+            mov rdx, rbx
+            sub rdx, rax
+            
+            ; Calcul du produit
+            mov rsi, rbx
+            imul rsi, rax
+        
+            ; Préparation pour la division
+            xor rdx, rdx    ; Important pour éviter des erreurs avec des nombres 64 bits
+            mov rax, rbx    ; Le dividende doit être dans RAX
+            div rax         ; Divise RDX:RAX par rbx, quotient dans RAX, reste dans RDX
+            
+            ; Exit Linux
+            mov rax, 60
+            xor rdi, rdi
+            syscall
+            </code></pre>
+        
+            <h2>Exercice 3 : Boucles simples</h2>
+            <ul>
+                <li>Écrire un programme qui utilise une boucle pour additionner les nombres de 1 à 10. Stocker le résultat final dans le registre <code>AX</code>.</li>
+            </ul>
+            <h3>Ma Solution :</h3>
+            <pre><code>
+        section .text
+            global _start
+        
+        _start:
+            ; initialisation à 1 d'un registre qui servira de compteur
+            mov rcx, 0x1
+        
+            ; initialisation à 0 du registre qui sera incrémenté
+            xor rax, rax
+            
+        _loop:
+            ; ajout du compteur a rbx
+            add rax, rcx
+            ; incrémentation du compteur
+            add rcx, 0x1
+        
+            ; tant que rax n'atteind pas 10
+            cmp rcx, 0xa
+            ; éxécuter la Procédure loop
+            jle _loop
+        
+            ; Exit Linux
+            mov rax, 60
+            xor rdi, rdi
+            syscall
+            </code></pre>
+        
+            <h2>Exercice 4 : Contrôle de flux</h2>
+            <ul>
+                <li>Écrire un programme qui compare deux nombres stockés dans <code>AX</code> et <code>BX</code>. Le programme doit sauter à deux sections différentes du code : une si <code>AX</code> est plus grand que <code>BX</code>, et une autre si <code>AX</code> est inférieur ou égal à <code>BX</code>.</li>
+            </ul>
+            <h3>Ma Solution :</h3>
+            <pre><code>
+        section .text
+            global _start
+        
+        _start:
+            ; attribution des valeurs aux deux registres
+            mov rax, 0x1
+            mov rbx, 0x2
+        
+            ; comparaison des registres
+            cmp rax, rbx
+            ; si rax plus grand, saut dans la procédure rax_greater
+            jg rax_greater
+            ; si rax inférieure ou égal, saut dans la procédure rax_less_equal
+            jle rax_less_equal
+        
+        rax_greater:
+            mov rcx, rax
+            jmp _fin
+            
+        rax_less_equal:
+            mov rcx, rbx
+            jmp _fin
+        
+        _fin:
+            mov rax, 60
+            xor rdi, rdi
+            syscall
+            </code></pre>
+        
+        
+    </div>
+    
+</body>
+</html>
